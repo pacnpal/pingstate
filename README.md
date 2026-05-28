@@ -4,6 +4,7 @@
 [![Python versions](https://img.shields.io/pypi/pyversions/pingstate.svg)](https://pypi.org/project/pingstate/)
 [![License](https://img.shields.io/github/license/pacnpal/pingstate.svg)](LICENSE)
 [![Publish](https://github.com/pacnpal/pingstate/actions/workflows/python-publish.yml/badge.svg)](https://github.com/pacnpal/pingstate/actions/workflows/python-publish.yml)
+[![GitHub](https://img.shields.io/badge/GitHub-pacnpal%2Fpingstate-181717?logo=github)](https://github.com/pacnpal/pingstate)
 
 A small Python module and daemon that probes a target, tracks whether it's up or down with a state machine, and serves the current state over a local HTTP API. Standard library only. No dependencies.
 
