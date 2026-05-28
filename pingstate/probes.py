@@ -182,7 +182,7 @@ class TCPProbe:
 # --- HTTP probe --------------------------------------------------------------
 
 
-_DEFAULT_USER_AGENT = "pingstate/0.2"
+_DEFAULT_USER_AGENT = "pingstate/0.0.1"
 _MAX_BODY_BYTES = 64 * 1024  # cap to keep memory bounded
 
 

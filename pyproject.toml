@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pingstate"
-version = "0.2.0"
+version = "0.0.1"
 description = "Small dependency-free Python module/daemon that probes a target, tracks up/down state with a state machine, and serves it over a local HTTP API."
 readme = "README.md"
 license = { text = "MIT" }
