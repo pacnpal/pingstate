@@ -1,0 +1,33 @@
+[Unit]
+Description=pingstate — TCP probe state machine with local HTTP API
+Documentation=https://github.com/pacnpal/pingstate
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Adjust the install path, target, and ports for your setup.
+ExecStart=/usr/bin/python3 /opt/pingstate/pingstate.py --target 1.1.1.1 --check-port 443 --port 8787 --interval 5
+Restart=on-failure
+RestartSec=5
+
+# Run as an unprivileged user. Create one first, e.g.:
+#   sudo useradd --system --no-create-home --shell /usr/sbin/nologin pingstate
+User=pingstate
+Group=pingstate
+
+# Hardening. Safe defaults for a stdlib-only daemon that only opens sockets.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target
