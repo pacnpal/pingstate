@@ -1,5 +1,10 @@
 # pingstate
 
+[![PyPI version](https://img.shields.io/pypi/v/pingstate.svg)](https://pypi.org/project/pingstate/)
+[![Python versions](https://img.shields.io/pypi/pyversions/pingstate.svg)](https://pypi.org/project/pingstate/)
+[![License](https://img.shields.io/github/license/pacnpal/pingstate.svg)](LICENSE)
+[![Publish](https://github.com/pacnpal/pingstate/actions/workflows/python-publish.yml/badge.svg)](https://github.com/pacnpal/pingstate/actions/workflows/python-publish.yml)
+
 A small Python module and daemon that probes a target, tracks whether it's up or down with a state machine, and serves the current state over a local HTTP API. Standard library only. No dependencies.
 
 It ships with two probes — TCP (does the port answer?) and HTTP/HTTPS (does the URL return what you expect?). Writing your own probe is one method on one class.
