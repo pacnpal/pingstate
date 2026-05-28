@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pingstate"
+version = "0.2.0"
+description = "Small dependency-free Python module/daemon that probes a target, tracks up/down state with a state machine, and serves it over a local HTTP API."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "pacnpal" }]
+requires-python = ">=3.10"
+keywords = [
+    "state-machine",
+    "fsm",
+    "monitoring",
+    "uptime-monitor",
+    "health-check",
+    "tcp",
+    "http",
+    "homelab",
+    "self-hosted",
+    "daemon",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Networking :: Monitoring",
+]
+
+[project.scripts]
+pingstate = "pingstate.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/pacnpal/pingstate"
+Issues = "https://github.com/pacnpal/pingstate/issues"
+
+[tool.setuptools.packages.find]
+include = ["pingstate*"]
+
+[tool.setuptools.package-data]
+pingstate = ["py.typed"]

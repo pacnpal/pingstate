@@ -6,8 +6,16 @@ After=network-online.target
 
 [Service]
 Type=simple
-# Adjust the install path, target, and ports for your setup.
-ExecStart=/usr/bin/python3 /opt/pingstate/pingstate.py --target 1.1.1.1 --check-port 443 --port 8787 --interval 5
+# Adjust the protocol/address/port/check and the ExecStart path for your setup.
+# After `pip install pingstate` the console script lives at /usr/local/bin/pingstate
+# (or wherever your Python install puts scripts).
+ExecStart=/usr/local/bin/pingstate \
+    --protocol tcp \
+    --address 1.1.1.1 \
+    --port 443 \
+    --interval 5 \
+    --api-host 127.0.0.1 \
+    --api-port 8787
 Restart=on-failure
 RestartSec=5
 
