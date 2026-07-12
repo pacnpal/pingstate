@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests",
+    ":dependencyDashboard",
+    ":semanticCommits"
+  ],
+  "timezone": "America/Los_Angeles",
+  "schedule": ["* 0-4 * * 1"],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "dependencyDashboard": true,
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
+  "ignoreTests": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Automerge GitHub Actions patch and minor updates (digest updates stay review-only, since minimumReleaseAge does not cover them)",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
+      "description": "Automerge non-major updates for stable (>=1.0.0) dependencies",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^v?0/",
+      "automerge": true
+    },
+    {
+      "description": "Never automerge Python runtime version constraint changes; require review",
+      "matchDepTypes": ["requires-python"],
+      "automerge": false,
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": "Require Dependency Dashboard approval for major updates",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
