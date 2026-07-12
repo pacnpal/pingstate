@@ -21,9 +21,9 @@
   },
   "packageRules": [
     {
-      "description": "Automerge GitHub Actions digest, patch, and minor updates",
+      "description": "Automerge GitHub Actions patch and minor updates (digest updates stay review-only, since minimumReleaseAge does not cover them)",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["digest", "patch", "minor"],
+      "matchUpdateTypes": ["patch", "minor"],
       "automerge": true
     },
     {
@@ -31,6 +31,12 @@
       "matchUpdateTypes": ["minor", "patch"],
       "matchCurrentVersion": "!/^v?0/",
       "automerge": true
+    },
+    {
+      "description": "Never automerge Python runtime version constraint changes; require review",
+      "matchDepTypes": ["requires-python"],
+      "automerge": false,
+      "dependencyDashboardApproval": true
     },
     {
       "description": "Require Dependency Dashboard approval for major updates",
