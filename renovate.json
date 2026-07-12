@@ -29,7 +29,7 @@
     {
       "description": "Automerge non-major updates for stable (>=1.0.0) dependencies",
       "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
+      "matchCurrentVersion": "!/^v?0/",
       "automerge": true
     },
     {
